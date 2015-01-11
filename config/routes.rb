@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   match "/admin" => redirect("/casein"), :via => :get
   
-  namespace :casein do
+  namespace :casein, :path => "admin" do
   
     resources :admin_users do
       member do
