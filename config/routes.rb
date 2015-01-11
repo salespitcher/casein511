@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     get code, :to => "errors#show", :code => code
   end
   
-  match "/admin" => redirect("/casein"), :via => :get
+  #match "/admin" => redirect("/casein"), :via => :get
   
   namespace :casein, :path => "admin" do
   
