@@ -286,7 +286,7 @@ module Casein
 
     def casein_wrapped_field field_helper_method, form, obj, attribute, options
       clz = "casein-" + field_helper_method.to_s.gsub(/_field$/,'').gsub('_', '-')
-      contents = content_tag 'div', class: clz do
+      contents = content_tag 'div', class: "form-control" + clz.to_s do
         form.send(field_helper_method, attribute, strip_casein_options(options))
       end
       casein_form_tag_wrapper(contents.html_safe, form, obj, attribute, options).html_safe
