@@ -16,8 +16,8 @@ Rails.application.routes.draw do
     resource :admin_user_session, :only => [:new, :create, :destroy]
     resource :password_reset, :only => [:create, :edit, :update]
         
-    match "/blank" => "casein#blank", :via => :get
-    root :to => "casein#index"
+    match "/blank" => "admin#blank", :via => :get
+    root :to => "admin#index"
   end
   
 end

@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem "gritter", "1.1.0"
 gem 'redactor-rails'
 gemspec
 

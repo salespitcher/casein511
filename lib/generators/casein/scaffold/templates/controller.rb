@@ -26,10 +26,10 @@ module Casein
       @<%= singular_name %> = <%= class_name %>.new <%= singular_name %>_params
     
       if @<%= singular_name %>.save
-        flash[:notice] = '<%= singular_name.humanize.capitalize %> created'
+        gflash :success => '<%= singular_name.humanize.capitalize %> created'
         redirect_to casein_<%= @plural_route %>_path
       else
-        flash.now[:warning] = 'There were problems when trying to create a new <%= singular_name.humanize.downcase %>'
+        gflash :error => 'There were problems when trying to create a new <%= singular_name.humanize.downcase %>'
         render :action => :new
       end
     end
@@ -40,10 +40,10 @@ module Casein
       @<%= singular_name %> = <%= class_name %>.find params[:id]
     
       if @<%= singular_name %>.update_attributes <%= singular_name %>_params
-        flash[:notice] = '<%= singular_name.humanize.capitalize %> has been updated'
+        gflash :success => '<%= singular_name.humanize.capitalize %> has been updated'
         redirect_to casein_<%= @plural_route %>_path
       else
-        flash.now[:warning] = 'There were problems when trying to update this <%= singular_name.humanize.downcase %>'
+        gflash :error => 'There were problems when trying to update this <%= singular_name.humanize.downcase %>'
         render :action => :show
       end
     end
@@ -52,7 +52,7 @@ module Casein
       @<%= singular_name %> = <%= class_name %>.find params[:id]
 
       @<%= singular_name %>.destroy
-      flash[:notice] = '<%= singular_name.humanize.capitalize %> has been deleted'
+      gflash :success => '<%= singular_name.humanize.capitalize %> has been deleted'
       redirect_to casein_<%= @plural_route %>_path
     end
   

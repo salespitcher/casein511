@@ -13,10 +13,14 @@ module Casein
       end
   
       def generate_files
-       puts "*** INSTALLING Redactor ***"
+      puts "*** INSTALLING Redactor ***"
       gem "redactor-rails"
       generate "redactor:install"
-
+        
+        
+        puts "*** INSTALLING Gritter 1.1.0 ***"
+      gem "gritter", "1.1.0"
+      generate "gritter:locale"
 
       puts "*** WARNING - Generating configuration files. Make sure you have backed up any files before overwriting them. ***"
 

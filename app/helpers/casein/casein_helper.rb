@@ -3,9 +3,9 @@ module Casein
 
     def casein_get_footer_string include_version = false
       if include_version
-        "Running on #{link_to 'Casein', 'http://www.github.com/russellquinn/casein'} #{casein_get_full_version_string}, an open-source project.".html_safe
+        "Running on #{link_to 'Salespitcher', 'http://www.salespitcher.ch'} #{casein_get_full_version_string}, an open-source project.".html_safe
       else
-        "Running on #{link_to 'Casein', 'http://www.github.com/russellquinn/casein'}, an open-source project.".html_safe
+        "Running on #{link_to 'Salespitcher', 'http://www.salespitcher.ch'}".html_safe
       end
     end
 

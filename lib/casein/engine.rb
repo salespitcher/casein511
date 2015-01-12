@@ -11,7 +11,7 @@ module Casein
     end
 
     initializer "casein.assets.precompile" do |app|
-      app.config.assets.precompile += %w(casein/*.svg casein/*.eot casein/*.woff casein/*.ttf casein/login.css casein/casein.css casein/casein.js casein/html5shiv.js casein/custom.css casein/custom.js redactor-rails.css redactor-rails.js casein/*.png rocket.svg)
+      app.config.assets.precompile += %w(casein/*.svg casein/*.eot casein/*.woff casein/*.ttf casein/login.css casein/casein.css casein/casein.js casein/html5shiv.js casein/custom.css casein/custom.js redactor-rails.css redactor-rails.js casein/*.png rocket.svg gritter.js gritter.css ie-spacer.gif gritter.png gritter-close.png success.png error.png)
     end
 
     rake_tasks do
