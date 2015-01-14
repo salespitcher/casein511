@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   
   namespace :casein, :path => "admin" do
   
+    post "versions/:id/revert" => "versions#revert", :as => "revert_version"
+    
+    get "/dashboard" => "casein#blank"
+    get "versions/allversions" => "versions#allversions"
+    
     resources :admin_users do
       member do
         patch :update_password, :reset_password

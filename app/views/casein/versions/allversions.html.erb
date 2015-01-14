@@ -1,0 +1,4 @@
+<% klass = params[:model]%>
+<% record = klass.singularize.classify.constantize.find(params[:model_id]) %>
+
+<%= render :partial => '/casein/layouts/versions' , :locals => { record_allversions: record }%>

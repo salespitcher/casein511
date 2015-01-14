@@ -1,0 +1,47 @@
+<% if controller.action_name == "show"  || controller.action_name == "allversions" %>
+<% if defined? record_allversions%>
+    <% record = record_allversions %>
+    <% lastX = 999 %>
+  <% else %>
+    <% record = instance_variable_get("@#{controller_name.classify.downcase}") %>
+    <% lastX = 5 %>
+  <% end %>
+
+  <% has_versions = !record.versions.nil? rescue false %>
+  <% if has_versions %>
+    <h2>Versions (<%= lastX %>) of this <%= controller_name.classify %>:</h2>
+
+    
+    <% record.versions.last(lastX).each_with_index do |version, index| %>
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="heading<%= version.created_at.strftime('%s')  %>">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#<%= version.created_at.strftime('%s')  %>" aria-expanded="false" aria-controls="<%= version.created_at.strftime('%s')  %>">
+                <%= version.event  %>, 
+                <%= Casein::AdminUser.find(version.whodunnit).name  %>, 
+              <%= version.created_at.strftime('%d.%m.%y %H:%M')  %>
+            </a>
+          </h4>
+        </div>
+        <div id="<%= version.created_at.strftime('%s')  %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= version.created_at.strftime('%s')  %>">
+          <div class="panel-body">
+            <% version.changeset.each  do |key, value|  %>
+              <% if key != "updated_at"  %>
+                <% if index.to_i != lastX.to_i %>
+            <strong>  <%= key %>:</strong> <%= value[0] %> <br />
+                <% else %>
+                  <%= key %>: was=<%= value[0] %>; is=<%= value[1] %> <br />
+                <% end %>
+
+              <% end %>
+            <% end %>
+            <%= link_to("revert", casein_revert_version_path(version), :method => :post, :class => "btn btn-default", :style => "margin-top:15px;") %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <%= link_to("show all Versions", casein_versions_allversions_path + "?model="+controller_name.classify+"&model_id="+record.id.to_s, :method => :get, :class => "btn btn-default", :style => "margin-top:15px;") %>
+  <% end %>
+<% end %>

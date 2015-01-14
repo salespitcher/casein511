@@ -45,7 +45,7 @@ module Casein
     def add_namespace_to_routes
       puts "   casein     adding namespace to routes.rb"
       file_to_update = Rails.root + 'config/routes.rb'
-      line_to_add = "namespace :casein do"
+      line_to_add = "namespace :casein, :path => 'admin' do"
       insert_sentinel = 'Application.routes.draw do'
       if File.read(file_to_update).scan(/(#{Regexp.escape("#{line_to_add}")})/mi).blank?
         gsub_add_once plural_name, file_to_update, "\n\t#Casein routes\n\t" + line_to_add + "\n\tend\n", insert_sentinel
