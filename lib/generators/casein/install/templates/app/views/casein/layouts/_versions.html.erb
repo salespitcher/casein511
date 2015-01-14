@@ -9,7 +9,11 @@
 
   <% has_versions = !record.versions.nil? rescue false %>
   <% if has_versions %>
-    <h2>Versions (<%= lastX %>) of this <%= controller_name.classify %>:</h2>
+    <h2>
+      <% if lastX >= 999 %>
+        All
+      <% end %>
+      Versions of this <%= record.class.name %>:</h2>
 
     
     <% record.versions.last(lastX).each_with_index do |version, index| %>
