@@ -23,11 +23,31 @@
     <script type="text/javascript">
       var current_controller = "<%= controller_name %>";
     </script>
+    
+    <script type="text/javascript">
+
+      $(".form-control").focusin(function(){
+        console.log("in");
+        $(this).parent().addClass("active");
+      });
+
+
+      $(".form-control").focusout(function(){
+        console.log("out");
+        $(this).parent().removeClass("active");
+        if( $(this).val() ) {
+           $(this).parent().addClass("filled");
+        } else {
+          $(this).parent().removeClass("filled");
+        }
+      });
+
+    </script>
   </head>
 
   <body>
 
-    <nav class="navbar navbar-default" role="navigation">
+    <nav class="navbar navbar-default z-depth-2" role="navigation">
       <% if @session_user != nil %>
         <div class="container">
           <div id="user-info">
@@ -60,7 +80,7 @@
 
       <div class="container">
         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-tabs">
             <%= render :partial => '/casein/layouts/tab_navigation' %>
           </ul>
         </div>
