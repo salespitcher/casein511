@@ -6,7 +6,7 @@ require "casein/version"
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "casein"
-  s.version     = "5.1.15"
+  s.version     = "5.1.16"
   s.authors     = ["Salespitcher"]
   s.date        = "2015-05-14"
   s.description = "A lightweight CMS toolkit for Ruby on Rails, based on Bootstrap."
