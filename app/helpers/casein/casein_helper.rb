@@ -336,7 +336,7 @@ module Casein
     		html += form.label(attribute, "#{human_attribute_name}#{sublabel}".html_safe, :class => "control-label")
     	end
 
-    	html += "<div class='well'>#{form_tag}</div></div>"
+    	html += "#{form_tag}</div>"
     end
   end
 end

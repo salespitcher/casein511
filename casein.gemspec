@@ -6,13 +6,13 @@ require "casein/version"
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "casein"
-  s.version     = "5.1.8"
-  s.authors     = ["Russell Quinn"]
-  s.date        = "2015-01-06"
+  s.version     = "5.1.9"
+  s.authors     = ["Salespitcher"]
+  s.date        = "2015-05-14"
   s.description = "A lightweight CMS toolkit for Ruby on Rails, based on Bootstrap."
   s.summary     = "A lightweight CMS toolkit for Ruby on Rails, based on Bootstrap."
-  s.email       = ["mail@russellquinn.com"]
-  s.homepage    = "http://www.caseincms.com/"
+  s.email       = ["info@salespitcher.ch"]
+  s.homepage    = "http://www.salespitcher.ch/"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.rdoc"]
@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rspec", "~> 3.0"
   s.add_dependency "rspec-rails", ">= 0"
   s.add_dependency "capybara-rails", ">= 0"
+  s.add_dependency "breadcrumbs_on_rails"
     
   s.add_development_dependency "sqlite3", '>= 0'
 end

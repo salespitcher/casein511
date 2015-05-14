@@ -6,6 +6,9 @@ module Casein
     ## optional filters for defining usage according to Casein::AdminUser access_levels
     # before_filter :needs_admin, :except => [:action1, :action2]
     # before_filter :needs_admin_or_current_user, :only => [:action1, :action2]
+    add_breadcrumb "home", root_path
+    add_breadcrumb "<%= plural_name %>", casein_<%= @plural_route %>_path
+    
   <% unless @no_index %>
     def index
       @casein_page_title = '<%= plural_name.humanize.capitalize %>'

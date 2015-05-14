@@ -3,8 +3,18 @@
 <h2>Add a new <%= singular_name.humanize.downcase %></h2>
 
 <%%= form_for @<%= file_name %>, :url => casein_<%= @plural_route %>_path do |f| %>
+
+<div class="card" style="margin-top:20px;">
+  <div class="card-header" style="position:relative;">
+    <div class="card-title">Events</div>
+    <div class="small grey-text"><%= casein_pagination_details @events %> Something</div>
+  </div>
+  
+  <%%= render :partial => 'casein/<%= plural_name %>/form', :locals => { :f => f } %>
+  
+</div>
 	
-	<%%= render :partial => 'casein/<%= plural_name %>/form', :locals => { :f => f } %>
+	
 	
 	<p class="submits">
 		<%%= link_to 'Cancel', casein_<%= @plural_route %>_path, :class => 'btn btn-mini btn-danger' %>
@@ -12,6 +22,11 @@
 	</p>
 
 <%% end %>
+
+
+    <div class="footer-buttons">
+      <%%= link_to "<i class='md md-check'></i>".html_safe, casein_<%= @plural_route %>_path, :class => "btn btn-primary btn-round" %>
+    </div>
 
 <%%= content_for :sidebar do %>
 	<li><%%= link_to "#{casein_show_icon "th-list"}Back to list".html_safe, casein_<%= @plural_route %>_path %></li>
