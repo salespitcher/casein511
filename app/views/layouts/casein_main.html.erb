@@ -65,6 +65,11 @@
           </ul>
         </div>
       </div>
+      <% if content_for?(:floatingactions) %>
+        <div class="floating-actions">
+          <%= yield :floatingactions %>
+        </div>
+      <% end %>
     </nav>
 
     <div class="container">
