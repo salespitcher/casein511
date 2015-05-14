@@ -66,7 +66,7 @@ module Casein
         line_to_add = "resources :#{plural_name}"
       end
 
-      insert_sentinel = 'namespace :casein do'
+      insert_sentinel = "namespace :casein, :path => 'admin' do"
       gsub_add_once plural_name, file_to_update, "\t\t" + line_to_add, insert_sentinel
     end
 

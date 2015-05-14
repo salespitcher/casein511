@@ -21,8 +21,8 @@ module Casein
       puts "*** INSTALLING Gritter 1.1.0 ***"
       gem "gritter", "1.1.0"
       generate "gritter:locale"
-
-
+     
+      
       puts "*** INSTALLING Paper-Trail 3.0.6 ***"
       gem 'paper_trail', '3.0.6'
       generate "paper_trail:install"
