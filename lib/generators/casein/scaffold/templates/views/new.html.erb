@@ -6,6 +6,12 @@
   <div class="card-header" style="position:relative;">
     <div class="card-title"><%= @casein_page_title %></div>
     <div class="small grey-text">Add a new <%= singular_name.humanize.downcase %></div>
+    <div class="floating-actions">
+      <button type="submit" class="btn btn-round btn-primary">
+        <span class="md md-check"></span>
+        <div class="ripple-wrapper"></div>
+      </button>
+    </div>
   </div>
   <div class="card-content">
     <%%= render :partial => 'casein/<%= plural_name %>/form', :locals => { :f => f } %>
@@ -18,7 +24,10 @@
 
 
 <div class="footer-buttons">
-  <%%= f.submit "<i class='md md-check'></i>".html_safe, :class => "btn btn-primary btn-round" %>
+  <button type="submit" class="btn btn-round btn-primary">
+    <span class="md md-check"></span>
+    <div class="ripple-wrapper"></div>
+  </button>
 </div>
 
 
